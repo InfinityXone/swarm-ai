@@ -1,0 +1,127 @@
+[
+  {
+    "key": "INFINITY_BROKER_SECRET",
+    "value": "your_custom_secret_here",
+    "type": "shared"
+  },
+  {
+    "key": "BROKER_ALLOWED_ORIGINS",
+    "value": "chat.openai.com,localhost",
+    "type": "shared"
+  },
+  {
+    "key": "CLOUDFLARED_TUNNEL_URL",
+    "value": "https://your-tunnel.trycloudflare.com",
+    "type": "shared"
+  },
+  {
+    "key": "OPENAI_API_KEY",
+    "value": "ssk-proj-GIqIyP4Nj6XhtE-uqEydFB-SIi1vpoKAEfJPjE8gwe6NotKIXKbGSJNgd-iXI4b4GefYLGFhS1T3BlbkFJu5aoHqRRcOU8hzqDY_5YkAuzAxOrzP_nW-mgAqWjI5BbElvIm3w2r0RZzfCwLW1snOnncF8hIAk-...",
+    "type": "shared"
+  },
+  {
+    "key": "GROQ_API_KEY",
+    "value": "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",
+    "type": "shared"
+  },
+  {
+    "key": "XAI_API_KEY",
+    "value": "",
+    "type": "shared"
+  },
+  {
+    "key": "REPLICATE_API_TOKEN",
+    "value": "",
+    "type": "shared"
+  },
+  {
+    "key": "HF_TOKEN",
+    "value": "",
+    "type": "shared"
+  },
+  {
+    "key": "GITHUB_PAT",
+    "value": "ghp_...",
+    "type": "shared"
+  },
+  {
+    "key": "GITHUB_APP_ID",
+    "value": "",
+    "type": "shared"
+  },
+  {
+    "key": "GITHUB_APP_INSTALLATION_ID",
+    "value": "",
+    "type": "shared"
+  },
+  {
+    "key": "GITHUB_PRIVATE_KEY_PATH",
+    "value": "/home/infinity-x-one/.infinity/github_app_private_key.pem",
+    "type": "shared"
+  },
+  {
+    "key": "GITHUB_ORG",
+    "value": "infinityxone",
+    "type": "shared"
+  },
+  {
+    "key": "VERCEL_TOKEN",
+    "value": "",
+    "type": "shared"
+  },
+  {
+    "key": "VERCEL_TEAM",
+    "value": "",
+    "type": "shared"
+  },
+  {
+    "key": "SUPABASE_URL",
+    "value": "https://xyzcompany.supabase.co",
+    "type": "shared"
+  },
+  {
+    "key": "SUPABASE_SERVICE_ROLE_KEY",
+    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJy",
+    "type": "shared"
+  },
+  {
+    "key": "CF_ACCOUNT",
+    "value": "",
+    "type": "shared"
+  },
+  {
+    "key": "CF_PROJECT",
+    "value": "",
+    "type": "shared"
+  },
+  {
+    "key": "CF_API_TOKEN",
+    "value": "",
+    "type": "shared"
+  },
+  {
+    "key": "ETHERSCAN_API_KEY_1",
+    "value": "",
+    "type": "shared"
+  },
+  {
+    "key": "ETHERSCAN_API_KEY_2",
+    "value": "",
+    "type": "shared"
+  },
+  {
+    "key": "ETHERSCAN_API_KEY_3",
+    "value": "",
+    "type": "shared"
+  },
+  {
+    "key": "N8N_BASIC_AUTH_USER",
+    "value": "admin",
+    "type": "shared"
+  },
+  {
+    "key": "N8N_BASIC_AUTH_PASSWORD",
+    "value": "password123",
+    "type": "shared"
+  }
+]

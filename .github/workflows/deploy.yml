@@ -1,0 +1,13 @@
+name: 🚀 Genesis CI/CD
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Deploy Genesis
+        run: echo "🚀 Deploying Genesis agents + dashboard..."

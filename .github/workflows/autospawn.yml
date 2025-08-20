@@ -1,0 +1,23 @@
+name: AutoSpawn Satellites
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"   # every 15 minutes
+  workflow_dispatch:          # manual trigger via GitHub UI
+
+jobs:
+  spawn:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Infinity Agent One Satellite Spawner
+        run: |
+          curl -s -X POST "${{ secrets.AGENT_ONE_URL }}/exec" \
+          -H "Content-Type: application/json" \
+          -H "Authorization: Bearer ${{ secrets.AGENT_SECRET }}" \
+          -d '{
+            "action":"spawn_sats",
+            "args":{
+              "max":25,
+              "autoforward":"'${{ secrets.MASTER_WALLET }}'"
+            }
+          }'
