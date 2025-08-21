@@ -1,0 +1,33 @@
+name: Sync .env from GitHub Secrets
+
+on:
+  push:
+    branches: [ "master", "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Generate .env from secrets
+        run: |
+          echo "ETHERSCAN_API_KEYS=${{ secrets.ETHERSCAN_API_KEYS }}" >> .env
+          echo "GROQ_API_KEYS=${{ secrets.GROQ_API_KEYS }}" >> .env
+          echo "OPEN_API_API_KEYS=${{ secrets.OPEN_API_API_KEYS }}" >> .env
+          echo "SUPABASE_URL=${{ secrets.SUPABASE_URL }}" >> .env
+          echo "SUPABASE_SERVICE_ROLE=${{ secrets.SUPABASE_SERVICE_ROLE }}" >> .env
+          echo "AGENT_ZERO_SSH_KEY=${{ secrets.AGENT_ZERO_SSH_KEY }}" >> .env
+          echo "ALCHEMY_API_KEY=${{ secrets.ALCHEMY_API_KEY }}" >> .env
+          echo "INFURA_API_KEY=${{ secrets.INFURA_API_KEY }}" >> .env
+          echo "MORALIS_API_KEY=${{ secrets.MORALIS_API_KEY }}" >> .env
+          echo "QUICK_NODE_API_KEY=${{ secrets.QUICK_NODE_API_KEY }}" >> .env
+          echo "MASTER_WALLET=${{ secrets.MASTER_WALLET }}" >> .env
+          echo "BACKUP_WALLETS=${{ secrets.BACKUP_WALLETS }}" >> .env
+          echo "TRADE_SITES=${{ secrets.TRADE_SITES }}" >> .env
+      - name: Commit .env back into repo
+        run: |
+          git config user.email "auto@fin.synapse"
+          git config user.name "FinSynapse"
+          git add .env
+          git commit -m "ci: sync .env from GitHub Secrets" || echo "no changes"
+          git push
