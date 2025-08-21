@@ -1,8 +1,4 @@
 import os, itertools
-from dotenv import load_dotenv
-
-# Load .env file into environment
-load_dotenv()
 
 KEYS = [
     os.getenv("ETHERSCAN_KEY_1"),
@@ -10,11 +6,13 @@ KEYS = [
     os.getenv("ETHERSCAN_KEY_3"),
 ]
 
-# Keep only non-empty values
-KEYS = [k for k in KEYS if k]
+# Filter out None or empty strings
+VALID_KEYS = [k for k in KEYS if k and k.strip()]
 
-# Cycle through available keys forever
-cycle = itertools.cycle(KEYS)
+if not VALID_KEYS:
+    raise RuntimeError("❌ No valid ETHERSCAN_KEY_* found in environment/.env")
+
+cycle = itertools.cycle(VALID_KEYS)
 
 def get_key(i: int) -> str:
     return next(cycle)
