@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV=/home/infinity-x-one/infinity_loop/.venv
+VIRTUAL_ENV=/home/infinity-x-one/genesis_repo/.venv
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

@@ -4,11 +4,15 @@ on:
   push:
     branches: [ "master", "main" ]
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - name: Generate .env from secrets
         run: |
           echo "ETHERSCAN_API_KEYS=${{ secrets.ETHERSCAN_API_KEYS }}" >> .env
@@ -24,10 +28,11 @@ jobs:
           echo "MASTER_WALLET=${{ secrets.MASTER_WALLET }}" >> .env
           echo "BACKUP_WALLETS=${{ secrets.BACKUP_WALLETS }}" >> .env
           echo "TRADE_SITES=${{ secrets.TRADE_SITES }}" >> .env
-      - name: Commit .env back into repo
-        run: |
-          git config user.email "auto@fin.synapse"
-          git config user.name "FinSynapse"
-          git add .env
-          git commit -m "ci: sync .env from GitHub Secrets" || echo "no changes"
-          git push
+
+      - name: Upload .env artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: env-file
+          path: .env
+
+

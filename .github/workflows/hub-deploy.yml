@@ -7,6 +7,7 @@ on:
 permissions:
   contents: read
   deployments: write
+  id-token: write
 
 jobs:
   deploy:
@@ -20,7 +21,7 @@ jobs:
           node-version: "18"
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build
         run: npm run build
@@ -28,5 +29,8 @@ jobs:
       - name: Vercel Deploy
         run: |
           npm install -g vercel
-          vercel --token=${{ secrets.VERCEL_TOKEN }} --prod --confirm
+          vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+          vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+          vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+
 
