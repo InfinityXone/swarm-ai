@@ -1,0 +1,13 @@
+.env
+*.env
+inputs/env.d/local.env
+
+# Added ignore rules
+logs/
+*.log
+node_modules/
+package-lock.json
+*.bak.*
+proof_log.json
+reset_bot.sh
+load_env.sh
